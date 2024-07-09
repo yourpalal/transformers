@@ -2172,7 +2172,7 @@ class TrainingArguments:
                     "`mps` device will be used by default if available similar to the way `cuda` device is used."
                     "Therefore, no action from user is required. "
                 )
-                if device.type != "mps":
+                if not is_torch_mps_available():
                     raise ValueError(
                         "Either you do not have an MPS-enabled device on this machine or MacOS version is not 12.3+ "
                         "or current PyTorch install was not built with MPS enabled."
